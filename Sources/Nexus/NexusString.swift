@@ -50,32 +50,32 @@ public extension Nexus where T == String {
 
 public extension Nexus where T == String {
     
-    /// Data -> [Any] or [AnyHashable: Any]
+    /// Data -> [Any]? or [AnyHashable: Any]?
     var jsonValue: Any? { dataValue?.toJson(options:[]) }
     
-    /// Data -> [Any] or [AnyHashable: Any]
+    /// Data -> [Any]? or [AnyHashable: Any]?
     /// - Parameter opt: ReadingOptions
-    /// - Returns: [Any] or [AnyHashable: Any]
+    /// - Returns: [Any]? or [AnyHashable: Any]?
     func jsonValue(options opt: JSONSerialization.ReadingOptions) -> Any? {
         dataValue?.toJson(options: opt)
     }
     
-    /// Data -> [Any]
+    /// Data -> [Any]?
     var arrayValue: [Any]? { arrayValue(options:[]) }
     
-    /// Data -> [Any]
+    /// Data -> [Any]?
     /// - Parameter opt: ReadingOptions
-    /// - Returns: [Any]
+    /// - Returns: [Any]?
     func arrayValue(options opt: JSONSerialization.ReadingOptions) -> [Any]? {
         jsonValue(options: opt) as? [Any]
     }
     
-    /// Data -> [AnyHashable: Any]
+    /// Data -> [AnyHashable: Any]?
     var dictionaryValue: [AnyHashable: Any]? { dictionaryValue(options:[]) }
     
-    /// Data -> [AnyHashable: Any]
+    /// Data -> [AnyHashable: Any]?
     /// - Parameter opt: ReadingOptions
-    /// - Returns: [AnyHashable: Any]
+    /// - Returns: [AnyHashable: Any]?
     func dictionaryValue(options opt: JSONSerialization.ReadingOptions) -> [AnyHashable: Any]? {
         jsonValue(options: opt) as? [AnyHashable: Any]
     }
