@@ -63,3 +63,8 @@ public extension Nexus where T == Array<Any> {
     
 }
 
+
+public extension Array {
+    var stringArray: [String]? { self as? [String] }
+    var intArray: [Int]? { self as? [Int] }
+}
