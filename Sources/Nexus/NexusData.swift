@@ -26,11 +26,11 @@ public extension Nexus where T == Data {
     var stringValue: String? { .init(data: dataValue, encoding: .utf8) }
     
     /// Data -> String
-    var stringValueForPrint: String? {
+    var stringValueForPrint: String {
         if let dict = dataValue.nexus.dictionaryValue {
             return dict.nexus.stringValueForPrint
         } else {
-            return stringValue
+            return stringValue ?? ""
         }
     }
     
