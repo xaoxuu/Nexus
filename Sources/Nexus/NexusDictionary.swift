@@ -81,6 +81,9 @@ public extension Dictionary where Key == String {
     }
     
     func bool(forKey key: String) -> Bool? {
+        if let b = self[key] as? Bool {
+            return b
+        }
         var str = ""
         if let obj = self[key] as? String {
             str = obj
