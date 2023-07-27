@@ -65,9 +65,9 @@ public extension Nexus where T == Dictionary<AnyHashable, Any> {
 
 // MARK: Exts
 
-public extension Dictionary where Key == String {
+public extension Dictionary {
     
-    func string(forKey key: String) -> String? {
+    func string(forKey key: Key) -> String? {
         if let obj = self[key] as? String {
             return obj
         } else if let obj = self[key] as? Int {
@@ -80,7 +80,7 @@ public extension Dictionary where Key == String {
         return nil
     }
     
-    func bool(forKey key: String) -> Bool? {
+    func bool(forKey key: Key) -> Bool? {
         if let b = self[key] as? Bool {
             return b
         }
@@ -101,11 +101,11 @@ public extension Dictionary where Key == String {
         return nil
     }
     
-    func bool(forKey key: String, defaultValue: Bool) -> Bool {
+    func bool(forKey key: Key, defaultValue: Bool) -> Bool {
         bool(forKey: key) ?? defaultValue
     }
     
-    func int(forKey key: String) -> Int? {
+    func int(forKey key: Key) -> Int? {
         if let obj = self[key] as? Int {
             return obj
         } else if let obj = self[key] as? String {
@@ -114,7 +114,7 @@ public extension Dictionary where Key == String {
         return nil
     }
     
-    func double(forKey key: String) -> Double? {
+    func double(forKey key: Key) -> Double? {
         if let obj = self[key] as? Double {
             return obj
         } else if let obj = self[key] as? String {
@@ -123,7 +123,7 @@ public extension Dictionary where Key == String {
         return nil
     }
     
-    func dictionary(forKey key: String) -> [AnyHashable: Any]? {
+    func dictionary(forKey key: Key) -> [AnyHashable: Any]? {
         if let obj = self[key] as? [AnyHashable: Any] {
             return obj
         } else if let obj = self[key] as? String {
@@ -134,7 +134,7 @@ public extension Dictionary where Key == String {
         return nil
     }
     
-    func array(forKey key: String) -> [Any]? {
+    func array(forKey key: Key) -> [Any]? {
         if let obj = self[key] as? [Any] {
             return obj
         } else if let obj = self[key] as? String {
@@ -145,7 +145,7 @@ public extension Dictionary where Key == String {
         return nil
     }
     
-    func stringArray(forKey key: String) -> [String]? {
+    func stringArray(forKey key: Key) -> [String]? {
         array(forKey: key) as? [String]
     }
     
